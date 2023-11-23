@@ -18,6 +18,8 @@ app.listen(3900, () => {
     console.log('Server is running on port 3900');
     });
 
-
-app.get('/api/user',userRoutes);    
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+app.use('/api/user',userRoutes);    
 
