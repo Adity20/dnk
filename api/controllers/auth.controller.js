@@ -13,3 +13,4 @@ export const signup = async (req, res) => {
         next(errorHandler(500, 'Internal Server Error'));
     }
 };
+
