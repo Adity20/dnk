@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import { set } from 'mongoose'
 
@@ -8,6 +8,7 @@ export default function SignUp() {
   const [formData,setFormData] = useState({});
   const [loading,setLoading] = useState(false);
   const [error,setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData(
@@ -37,7 +38,7 @@ export default function SignUp() {
     }
     setLoading(false);
     setError(null);
-    
+    navigate('/sign-in')
     }catch(err){
       setLoading(false);
       setError(err.message);
@@ -62,7 +63,7 @@ export default function SignUp() {
           <span className='text-blue-700'>Sign in</span>
         </Link>
       </div>
-      {error && <p className='text-red-500'>{error}</p>}
+      {error && <p className='text-red-500 mt-5'>{error}</p>}
       </div>
   )
 }
